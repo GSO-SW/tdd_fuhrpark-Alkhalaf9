@@ -5,7 +5,7 @@ namespace FuhrparkverwaltungTests
 {
     [TestClass]
     public class AutoTests
-    {
+    { 
         [TestMethod]
         public void Fahren_SteigertKilometerstand()
         {
@@ -21,4 +21,20 @@ namespace FuhrparkverwaltungTests
             Assert.AreEqual(50, a.Kilometerstand);
         }
     }
+
+    [TestMethod]
+    public void Fahren_Negativenstrecke()
+    {
+        //Arrange
+        int kilometerstand = 10;
+        Auto a = new Auto(kilometerstand);
+        int streckeInKilometern = -1;
+
+        //Act
+        a.Fahren(streckeInKilometern);
+
+        //Assert
+        Assert.AreEqual(10 ,a.Kilometerstand);
+    }
+}
 }
